@@ -90,7 +90,9 @@ class _WeatherPageState extends State<WeatherPage> {
             _weather?.cityName ?? "Loading...",
             style: TextStyle(fontSize: 25),
           ),
-          Lottie.asset(getAnimation(_weather?.mainCondition ?? "")),
+          _weather?.mainCondition != null
+              ? Lottie.asset(getAnimation(_weather?.mainCondition ?? ""))
+              : Text(""),
           Text(
             _weather?.temperature != null
                 ? '${_weather?.temperature.round()}°C'
